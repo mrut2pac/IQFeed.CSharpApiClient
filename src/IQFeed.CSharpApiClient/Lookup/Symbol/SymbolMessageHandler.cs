@@ -26,14 +26,14 @@ namespace IQFeed.CSharpApiClient.Lookup.Symbol
             return ProcessMessages(SymbolBySicCodeMessage.ParseWithRequestId, message, count, true);
         }
 
-        public MessageContainer<SymbolByNiacCodeMessage> GetSymbolByNiacCodeMessages(byte[] message, int count)
+        public MessageContainer<SymbolByNaicsCodeMessage> GetSymbolByNaicsCodeMessages(byte[] message, int count)
         {
-            return ProcessMessages(SymbolByNiacCodeMessage.Parse, message, count, false);
+            return ProcessMessages(SymbolByNaicsCodeMessage.Parse, message, count, false);
         }
 
-        public MessageContainer<SymbolByNiacCodeMessage> GetSymbolByNiacCodeMessagesWithRequestId(byte[] message, int count)
+        public MessageContainer<SymbolByNaicsCodeMessage> GetSymbolByNaicsCodeMessagesWithRequestId(byte[] message, int count)
         {
-            return ProcessMessages(SymbolByNiacCodeMessage.ParseWithRequestId, message, count, true);
+            return ProcessMessages(SymbolByNaicsCodeMessage.ParseWithRequestId, message, count, true);
         }
 
         public MessageContainer<ListedMarketMessage> GetListedMarketMessages(byte[] message, int count)
@@ -76,14 +76,14 @@ namespace IQFeed.CSharpApiClient.Lookup.Symbol
             return ProcessMessages(SicCodeInfoMessage.ParseWithRequestId, message, count, true);
         }
 
-        public MessageContainer<NiacCodeInfoMessage> GetNiacCodeInfoMessages(byte[] message, int count)
+        public MessageContainer<NaicsCodeInfoMessage> GetNaicsCodeInfoMessages(byte[] message, int count)
         {
-            return ProcessMessages(NiacCodeInfoMessage.Parse, message, count, false);
+            return ProcessMessages(NaicsCodeInfoMessage.Parse, message, count, false);
         }
 
-        public MessageContainer<NiacCodeInfoMessage> GetNiacCodeInfoMessagesWithRequestId(byte[] message, int count)
+        public MessageContainer<NaicsCodeInfoMessage> GetNaicsCodeInfoMessagesWithRequestId(byte[] message, int count)
         {
-            return ProcessMessages(NiacCodeInfoMessage.ParseWithRequestId, message, count, true);
+            return ProcessMessages(NaicsCodeInfoMessage.ParseWithRequestId, message, count, true);
         }
     }
 }

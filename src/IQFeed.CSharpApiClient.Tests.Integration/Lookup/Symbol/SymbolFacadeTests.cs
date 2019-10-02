@@ -93,15 +93,15 @@ namespace IQFeed.CSharpApiClient.Tests.Integration.Lookup.Symbol
         }
 
         [Test]
-        public async Task Should_Return_NiacCodes()
+        public async Task Should_Return_NaicsCodes()
         {
             // Act
-            var niacCodes = await _lookupClient.Symbol.ReqNiacCodesAsync();
+            var naicsCodes = await _lookupClient.Symbol.ReqNaicsCodesAsync();
 
             // Assert
-            Assert.True(niacCodes.Count() > 0);
+            Assert.True(naicsCodes.Count() > 0);
             Assert.AreEqual("Radio and Television Broadcasting and Wireless Communications Equipment Manufacturing", 
-                niacCodes.Where(c => c.NiacCode == 334220).Single().Description);            
+                naicsCodes.Where(c => c.NaicsCode == 334220).Single().Description);            
         }
 
         [Test]
@@ -159,23 +159,23 @@ namespace IQFeed.CSharpApiClient.Tests.Integration.Lookup.Symbol
         }
 
         [Test]
-        public async Task Should_Return_Symbols_By_NiacCode_And_RequestId()
+        public async Task Should_Return_Symbols_By_NaicsCode_And_RequestId()
         {
             // Act
-            var symbolsByNiacCode = await _lookupClient.Symbol.ReqSymbolsByNiacCodeAsync("33", "reqId2");
+            var symbolsByNaicsCode = await _lookupClient.Symbol.ReqSymbolsByNaicsCodeAsync("33", "reqId2");
 
             // Assert
-            Assert.True(symbolsByNiacCode.Count() > 0);
-            Assert.AreEqual(symbolsByNiacCode.Count(), 
-                symbolsByNiacCode.Where(st => st.RequestId == "reqId2" && st.NiacCode.ToString().StartsWith("33")).Count());
+            Assert.True(symbolsByNaicsCode.Count() > 0);
+            Assert.AreEqual(symbolsByNaicsCode.Count(), 
+                symbolsByNaicsCode.Where(st => st.RequestId == "reqId2" && st.NaicsCode.ToString().StartsWith("33")).Count());
         }
 
         [Test]
-        public void Should_Throw_Exceptions_When_Invalid_NiacCodePrefix()
+        public void Should_Throw_Exceptions_When_Invalid_NaicsCodePrefix()
         {
             // Assert
-            Assert.ThrowsAsync<ArgumentNullException>(async () => await _lookupClient.Symbol.ReqSymbolsByNiacCodeAsync(null));
-            Assert.ThrowsAsync<ArgumentException>(async () => await _lookupClient.Symbol.ReqSymbolsByNiacCodeAsync("2"));
+            Assert.ThrowsAsync<ArgumentNullException>(async () => await _lookupClient.Symbol.ReqSymbolsByNaicsCodeAsync(null));
+            Assert.ThrowsAsync<ArgumentException>(async () => await _lookupClient.Symbol.ReqSymbolsByNaicsCodeAsync("2"));
         }
 
         [Test]

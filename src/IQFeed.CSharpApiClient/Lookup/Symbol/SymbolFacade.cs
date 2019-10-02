@@ -69,14 +69,14 @@ namespace IQFeed.CSharpApiClient.Lookup.Symbol
                 : GetMessagesAsync(request, _symbolMessageHandler.GetSymbolBySicCodeMessagesWithRequestId);
         }
 
-        public Task<IEnumerable<SymbolByNiacCodeMessage>> ReqSymbolsByNiacCodeAsync(string niacCodePrefix, string requestId = null)
+        public Task<IEnumerable<SymbolByNaicsCodeMessage>> ReqSymbolsByNaicsCodeAsync(string naicsCodePrefix, string requestId = null)
         {
-            if(niacCodePrefix == null) throw new ArgumentNullException(nameof(niacCodePrefix));
-            if(niacCodePrefix.Length < 2) throw new ArgumentException("Value should have at least 2 characters!", nameof(niacCodePrefix));
-            var request = _symbolRequestFormatter.ReqSymbolsByNiacCode(niacCodePrefix, requestId);
+            if(naicsCodePrefix == null) throw new ArgumentNullException(nameof(naicsCodePrefix));
+            if(naicsCodePrefix.Length < 2) throw new ArgumentException("Value should have at least 2 characters!", nameof(naicsCodePrefix));
+            var request = _symbolRequestFormatter.ReqSymbolsByNaicsCode(naicsCodePrefix, requestId);
             return string.IsNullOrEmpty(requestId)
-                ? GetMessagesAsync(request, _symbolMessageHandler.GetSymbolByNiacCodeMessages)
-                : GetMessagesAsync(request, _symbolMessageHandler.GetSymbolByNiacCodeMessagesWithRequestId);
+                ? GetMessagesAsync(request, _symbolMessageHandler.GetSymbolByNaicsCodeMessages)
+                : GetMessagesAsync(request, _symbolMessageHandler.GetSymbolByNaicsCodeMessagesWithRequestId);
         }
 
         public Task<IEnumerable<ListedMarketMessage>> ReqListedMarketsAsync(string requestId = null)
@@ -111,12 +111,12 @@ namespace IQFeed.CSharpApiClient.Lookup.Symbol
                 : GetMessagesAsync(request, _symbolMessageHandler.GetSicCodeInfoMessagesWithRequestId);
         }
 
-        public Task<IEnumerable<NiacCodeInfoMessage>> ReqNiacCodesAsync(string requestId = null)
+        public Task<IEnumerable<NaicsCodeInfoMessage>> ReqNaicsCodesAsync(string requestId = null)
         {
-            var request = _symbolRequestFormatter.ReqNiacCodes(requestId);
+            var request = _symbolRequestFormatter.ReqNaicsCodes(requestId);
             return string.IsNullOrEmpty(requestId)
-                ? GetMessagesAsync(request, _symbolMessageHandler.GetNiacCodeInfoMessages)
-                : GetMessagesAsync(request, _symbolMessageHandler.GetNiacCodeInfoMessagesWithRequestId);
+                ? GetMessagesAsync(request, _symbolMessageHandler.GetNaicsCodeInfoMessages)
+                : GetMessagesAsync(request, _symbolMessageHandler.GetNaicsCodeInfoMessagesWithRequestId);
         }
     }
 }

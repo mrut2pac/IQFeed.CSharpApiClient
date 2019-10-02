@@ -99,48 +99,48 @@ namespace IQFeed.CSharpApiClient.Tests.Lookup.Symbol.Messages
         }
 
         [Test, TestCaseSource(typeof(CultureNameTestCase), nameof(CultureNameTestCase.CultureNames))]
-        public void Should_Parse_SymbolByNiacCodeMessage(string cultureName)
+        public void Should_Parse_SymbolByNaicsCodeMessage(string cultureName)
         {
             // Arrange
             TestHelper.SetThreadCulture(cultureName);
             var message = "924110,EESC,4,1,EASTERN ENVTL SOLTNS CP,";
 
             // Act
-            var symbolByNiacCodeMessageParsed = SymbolByNiacCodeMessage.Parse(message);
-            var symbolByNiacCodeMessage = new SymbolByNiacCodeMessage(924110, "EESC", 4, 1, "EASTERN ENVTL SOLTNS CP");
+            var symbolByNaicsCodeMessageParsed = SymbolByNaicsCodeMessage.Parse(message);
+            var symbolByNaicsCodeMessage = new SymbolByNaicsCodeMessage(924110, "EESC", 4, 1, "EASTERN ENVTL SOLTNS CP");
 
             // Assert
-            Assert.AreEqual(symbolByNiacCodeMessageParsed, symbolByNiacCodeMessage);
+            Assert.AreEqual(symbolByNaicsCodeMessageParsed, symbolByNaicsCodeMessage);
         }
 
         [Test, TestCaseSource(typeof(CultureNameTestCase), nameof(CultureNameTestCase.CultureNames))]
-        public void Should_Parse_SymbolByNiacCodeMessage_WithCommasInDescription(string cultureName)
+        public void Should_Parse_SymbolByNaicsCodeMessage_WithCommasInDescription(string cultureName)
         {
             // Arrange
             TestHelper.SetThreadCulture(cultureName);
             var message = "924110,EESC,4,1,EASTERN ENVTL SOLTNS, CP,";
 
             // Act
-            var symbolByNiacCodeMessageParsed = SymbolByNiacCodeMessage.Parse(message);
-            var symbolByNiacCodeMessage = new SymbolByNiacCodeMessage(924110, "EESC", 4, 1, "EASTERN ENVTL SOLTNS, CP");
+            var symbolByNaicsCodeMessageParsed = SymbolByNaicsCodeMessage.Parse(message);
+            var symbolByNaicsCodeMessage = new SymbolByNaicsCodeMessage(924110, "EESC", 4, 1, "EASTERN ENVTL SOLTNS, CP");
 
             // Assert
-            Assert.AreEqual(symbolByNiacCodeMessageParsed, symbolByNiacCodeMessage);
+            Assert.AreEqual(symbolByNaicsCodeMessageParsed, symbolByNaicsCodeMessage);
         }
 
         [Test, TestCaseSource(typeof(CultureNameTestCase), nameof(CultureNameTestCase.CultureNames))]
-        public void Should_ParseWithRequestId_SymbolByNiacCodeMessage(string cultureName)
+        public void Should_ParseWithRequestId_SymbolByNaicsCodeMessage(string cultureName)
         {
             // Arrange
             TestHelper.SetThreadCulture(cultureName);
             var message = "TESTREQUEST,928110,TCNH,4,1,TECHNEST HOLDINGS INC,";
 
             // Act
-            var symbolByNiacCodeMessageParsed = SymbolByNiacCodeMessage.ParseWithRequestId(message);
-            var symbolByNiacCodeMessage = new SymbolByNiacCodeMessage(928110, "TCNH", 4, 1, "TECHNEST HOLDINGS INC", "TESTREQUEST");
+            var symbolByNaicsCodeMessageParsed = SymbolByNaicsCodeMessage.ParseWithRequestId(message);
+            var symbolByNaicsCodeMessage = new SymbolByNaicsCodeMessage(928110, "TCNH", 4, 1, "TECHNEST HOLDINGS INC", "TESTREQUEST");
 
             // Assert
-            Assert.AreEqual(symbolByNiacCodeMessageParsed, symbolByNiacCodeMessage);
+            Assert.AreEqual(symbolByNaicsCodeMessageParsed, symbolByNaicsCodeMessage);
         }
 
         [Test, TestCaseSource(typeof(CultureNameTestCase), nameof(CultureNameTestCase.CultureNames))]
@@ -264,33 +264,33 @@ namespace IQFeed.CSharpApiClient.Tests.Lookup.Symbol.Messages
         }
 
         [Test, TestCaseSource(typeof(CultureNameTestCase), nameof(CultureNameTestCase.CultureNames))]
-        public void Should_Parse_NiacCodeInfoMessage(string cultureName)
+        public void Should_Parse_NaicsCodeInfoMessage(string cultureName)
         {
             // Arrange
             TestHelper.SetThreadCulture(cultureName);
             var message = "111110,Soybean Farming,";
 
             // Act
-            var niacCodeInfoMessageParsed = NiacCodeInfoMessage.Parse(message);
-            var niacCodeInfoMessage = new NiacCodeInfoMessage(111110, "Soybean Farming");
+            var naicsCodeInfoMessageParsed = NaicsCodeInfoMessage.Parse(message);
+            var naicsCodeInfoMessage = new NaicsCodeInfoMessage(111110, "Soybean Farming");
 
             // Assert
-            Assert.AreEqual(niacCodeInfoMessageParsed, niacCodeInfoMessage);
+            Assert.AreEqual(naicsCodeInfoMessageParsed, naicsCodeInfoMessage);
         }
 
         [Test, TestCaseSource(typeof(CultureNameTestCase), nameof(CultureNameTestCase.CultureNames))]
-        public void Should_ParseWithRequestId_NiacCodeInfoMessage(string cultureName)
+        public void Should_ParseWithRequestId_NaicsCodeInfoMessage(string cultureName)
         {
             // Arrange
             TestHelper.SetThreadCulture(cultureName);
             var message = "TESTREQUEST,334220,Radio and Television Broadcasting and Wireless Communications Equipment Manufacturing,";
 
             // Act
-            var niacCodeInfoMessageParsed = NiacCodeInfoMessage.ParseWithRequestId(message);
-            var niacCodeInfoMessage = new NiacCodeInfoMessage(334220, "Radio and Television Broadcasting and Wireless Communications Equipment Manufacturing", "TESTREQUEST");
+            var naicsCodeInfoMessageParsed = NaicsCodeInfoMessage.ParseWithRequestId(message);
+            var naicsCodeInfoMessage = new NaicsCodeInfoMessage(334220, "Radio and Television Broadcasting and Wireless Communications Equipment Manufacturing", "TESTREQUEST");
 
             // Assert
-            Assert.AreEqual(niacCodeInfoMessageParsed, niacCodeInfoMessage);
+            Assert.AreEqual(naicsCodeInfoMessageParsed, naicsCodeInfoMessage);
         }
     }
 }

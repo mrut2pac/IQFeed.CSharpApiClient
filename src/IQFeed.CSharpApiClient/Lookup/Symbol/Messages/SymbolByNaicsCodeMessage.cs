@@ -3,12 +3,12 @@ using IQFeed.CSharpApiClient.Extensions;
 
 namespace IQFeed.CSharpApiClient.Lookup.Symbol.Messages
 {
-    public class SymbolByNiacCodeMessage : ISymbolByNiacCodeMessage
+    public class SymbolByNaicsCodeMessage : ISymbolByNaicsCodeMessage
     {
-        public SymbolByNiacCodeMessage(int niacCode, string symbol, int listedMarketId, int securityTypeId, string description, string requestId = null)
+        public SymbolByNaicsCodeMessage(int naicsCode, string symbol, int listedMarketId, int securityTypeId, string description, string requestId = null)
         {
             RequestId = requestId;
-            NiacCode = niacCode;
+            NaicsCode = naicsCode;
             Symbol = symbol;
             ListedMarketId = listedMarketId;
             SecurityTypeId = securityTypeId;
@@ -16,17 +16,17 @@ namespace IQFeed.CSharpApiClient.Lookup.Symbol.Messages
         }
 
         public string RequestId { get; }
-        public int NiacCode { get; }
+        public int NaicsCode { get; }
         public string Symbol { get; }
         public int ListedMarketId { get; }
         public int SecurityTypeId { get; }
         public string Description { get; }
 
-        public static SymbolByNiacCodeMessage Parse(string message)
+        public static SymbolByNaicsCodeMessage Parse(string message)
         {
             var values = message.SplitFeedMessage(5);
 
-            return new SymbolByNiacCodeMessage(
+            return new SymbolByNaicsCodeMessage(
                 int.Parse(values[0], CultureInfo.InvariantCulture),
                 values[1],
                 int.Parse(values[2], CultureInfo.InvariantCulture),
@@ -34,12 +34,12 @@ namespace IQFeed.CSharpApiClient.Lookup.Symbol.Messages
                 values[4]);
         }
 
-        public static SymbolByNiacCodeMessage ParseWithRequestId(string message)
+        public static SymbolByNaicsCodeMessage ParseWithRequestId(string message)
         {
             var values = message.SplitFeedMessage(6);
             var requestId = values[0];
 
-            return new SymbolByNiacCodeMessage(
+            return new SymbolByNaicsCodeMessage(
                 int.Parse(values[1], CultureInfo.InvariantCulture),
                 values[2],
                 int.Parse(values[3], CultureInfo.InvariantCulture),
@@ -50,9 +50,9 @@ namespace IQFeed.CSharpApiClient.Lookup.Symbol.Messages
 
         public override bool Equals(object obj)
         {
-            return obj is SymbolByNiacCodeMessage message &&
+            return obj is SymbolByNaicsCodeMessage message &&
                    RequestId == message.RequestId &&
-                   NiacCode == message.NiacCode &&
+                   NaicsCode == message.NaicsCode &&
                    Symbol == message.Symbol &&
                    ListedMarketId == message.ListedMarketId &&
                    SecurityTypeId == message.SecurityTypeId &&
@@ -65,7 +65,7 @@ namespace IQFeed.CSharpApiClient.Lookup.Symbol.Messages
             {
                 var hash = 17;
                 hash = hash * 29 + RequestId != null ? RequestId.GetHashCode() : 0;
-                hash = hash * 29 + NiacCode.GetHashCode();
+                hash = hash * 29 + NaicsCode.GetHashCode();
                 hash = hash * 29 + Symbol.GetHashCode();
                 hash = hash * 29 + ListedMarketId.GetHashCode();
                 hash = hash * 29 + SecurityTypeId.GetHashCode();                

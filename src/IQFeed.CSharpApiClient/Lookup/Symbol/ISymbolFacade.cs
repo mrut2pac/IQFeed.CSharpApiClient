@@ -26,18 +26,18 @@ namespace IQFeed.CSharpApiClient.Lookup.Symbol
         /// <summary>
         /// SBS - Request the Symbols By SIC code
         /// </summary>
-        /// <param name="niacCodePrefix">At least the first 2 digits of an existing SIC code</param>
+        /// <param name="sicCodePrefix">At least the first 2 digits of an existing SIC code</param>
         /// <param name="requestId">Optional request id</param>
         /// <returns>Symbol By Sic Code messages</returns>
         Task<IEnumerable<SymbolBySicCodeMessage>> ReqSymbolsBySicCodeAsync(string sicCodePrefix, string requestId = null);
 
         /// <summary>
-        /// SBN - Request the Symbols By NIAC code
+        /// SBN - Request the Symbols By NAICS code
         /// </summary>
-        /// <param name="niacCodePrefix">At least the first 2 digits of an existing NIAC code</param>
+        /// <param name="naicsCodePrefix">At least the first 2 digits of an existing NAICS code</param>
         /// <param name="requestId">Optional request id</param>
-        /// <returns>Symbol By Niac Code messages</returns>
-        Task<IEnumerable<SymbolByNiacCodeMessage>> ReqSymbolsByNiacCodeAsync(string niacCodePrefix, string requestId = null);
+        /// <returns>Symbol By Naics Code messages</returns>
+        Task<IEnumerable<SymbolByNaicsCodeMessage>> ReqSymbolsByNaicsCodeAsync(string naicsCodePrefix, string requestId = null);
 
         /// <summary>
         /// SLM - Request a list of Listed Markets from the feed.
@@ -68,10 +68,10 @@ namespace IQFeed.CSharpApiClient.Lookup.Symbol
         Task<IEnumerable<SicCodeInfoMessage>> ReqSicCodesAsync(string requestId = null);
 
         /// <summary>
-        /// SNC - Request a list of NIAC Codes from the feed.
+        /// SNC - Request a list of NAICS Codes from the feed.
         /// </summary>
         /// <param name="requestId">Optional request id</param>
-        /// <returns>NIAC code info messages</returns>
-        Task<IEnumerable<NiacCodeInfoMessage>> ReqNiacCodesAsync(string requestId = null);
+        /// <returns>NAICS code info messages</returns>
+        Task<IEnumerable<NaicsCodeInfoMessage>> ReqNaicsCodesAsync(string requestId = null);
     }
 }

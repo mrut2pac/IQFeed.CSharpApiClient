@@ -51,16 +51,16 @@ namespace IQFeed.CSharpApiClient.Tests.Lookup.Symbol
         }
 
         [Test]
-        public void ReqSymbolsByNiacCode()
+        public void ReqSymbolsByNaicsCode()
         {
-            var request = _symbolRequestFormatter.ReqSymbolsByNiacCode("123");
+            var request = _symbolRequestFormatter.ReqSymbolsByNaicsCode("123");
             Assert.AreEqual("SBN,123,\r\n", request);
         }
 
         [Test]
-        public void ReqSymbolsByNiacCode_WithRequestId()
+        public void ReqSymbolsByNaicsCode_WithRequestId()
         {
-            var request = _symbolRequestFormatter.ReqSymbolsByNiacCode("89", "req2");
+            var request = _symbolRequestFormatter.ReqSymbolsByNaicsCode("89", "req2");
             Assert.AreEqual("SBN,89,req2\r\n", request);
         }
 
@@ -121,16 +121,16 @@ namespace IQFeed.CSharpApiClient.Tests.Lookup.Symbol
         }
 
         [Test]
-        public void ReqNiacCodes()
+        public void ReqNaicsCodes()
         {
-            var request = _symbolRequestFormatter.ReqNiacCodes();
+            var request = _symbolRequestFormatter.ReqNaicsCodes();
             Assert.AreEqual("SNC,\r\n", request);
         }
 
         [Test]
-        public void ReqNiacCodes_WithRequestId()
+        public void ReqNaicsCodes_WithRequestId()
         {
-            var request = _symbolRequestFormatter.ReqNiacCodes("req7");
+            var request = _symbolRequestFormatter.ReqNaicsCodes("req7");
             Assert.AreEqual("SNC,req7\r\n", request);
         }
     }

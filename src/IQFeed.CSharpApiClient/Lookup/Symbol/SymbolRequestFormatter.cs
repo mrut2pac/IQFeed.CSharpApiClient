@@ -23,7 +23,7 @@ namespace IQFeed.CSharpApiClient.Lookup.Symbol
             return request;
         }
 
-        public string ReqSymbolsByNiacCode(string searchString, string requestId = null)
+        public string ReqSymbolsByNaicsCode(string searchString, string requestId = null)
         {
             // SBN,[Search String],[RequestID]<CR><LF>
             var request = $"SBN,{searchString},{requestId}{IQFeedDefault.ProtocolTerminatingCharacters}";
@@ -58,7 +58,7 @@ namespace IQFeed.CSharpApiClient.Lookup.Symbol
             return request;
         }
 
-        public string ReqNiacCodes(string requestId = null)
+        public string ReqNaicsCodes(string requestId = null)
         {
             // SNC,[RequestID]<CR><LF>
             var request = $"SNC,{requestId}{IQFeedDefault.ProtocolTerminatingCharacters}";

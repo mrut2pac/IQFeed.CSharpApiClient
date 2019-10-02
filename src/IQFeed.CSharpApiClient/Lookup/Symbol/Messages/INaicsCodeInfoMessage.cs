@@ -1,9 +1,9 @@
 ﻿namespace IQFeed.CSharpApiClient.Lookup.Symbol.Messages
 {
-    public interface INiacCodeInfoMessage
+    public interface INaicsCodeInfoMessage
     {
         string Description { get; }
-        int NiacCode { get; }
+        int NaicsCode { get; }
         string RequestId { get; }
     }
 }

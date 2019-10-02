@@ -1,10 +1,10 @@
 ﻿namespace IQFeed.CSharpApiClient.Lookup.Symbol.Messages
 {
-    public interface ISymbolByNiacCodeMessage
+    public interface ISymbolByNaicsCodeMessage
     {
         string Description { get; }
         int ListedMarketId { get; }
-        int NiacCode { get; }
+        int NaicsCode { get; }
         int SecurityTypeId { get; }
         string Symbol { get; }
     }
